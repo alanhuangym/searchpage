@@ -1,0 +1,56 @@
+<%- include('header') %>
+
+  <!--导航栏-->
+  <nav>
+    <div class="navbar">
+      <div class="inner_bar">
+        <a   href="/search">搜索资讯<i></i></a>
+        <a  class="curent" href="/upload">上传资讯<i></i></a>
+        <a  href="/search_reports">报告搜索<i></i></a>
+      </div>
+    </div>
+  </nav>
+  
+
+  <!--资讯上传栏-->
+  <div id="container" style="text-align:left">
+    
+    <!-- 表格 -->
+    <form class="upload_form" method="post" enctype="multipart/form-data">
+      <ul>
+      <!-- 标题 -->
+      <li>
+      <h1 >资讯上传</h1>
+      <!-- 必填提示栏 -->
+      <span class="require_notification">
+        *表示必填项
+      </span>
+      </li>
+      <li>
+      <label ><font color="red">*</font>标题：</label>
+      <input  required  name="title" type="text"  placeholder="请输入资讯的标题" autofocus="autofocus" >
+      </li>
+      <li>
+      <label ><font color="red">*</font>作者：</label>
+      <input required  name="author" type="text"    value="alan" >    
+      </li>
+      <li>
+      <label ><font color="red">*</font>日期：</label>
+      <input  required name="date" type="text"     value="2017年10月9日" >
+      </li> 
+      <li>
+      <label >内容：</label>
+      <textarea name="content" ></textarea>
+      </li>
+      <li>
+      <label >上传附件：</label>
+      <input id="upload_attachment"name="attachment" type="file" ><br/>
+      </li>
+      <li>
+      <button id="upload_submit" type="submit" >上传</button>
+      </li>
+    </ul>
+    </form>
+  </div>
+
+<%- include('footer')%>

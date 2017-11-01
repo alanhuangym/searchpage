@@ -1,0 +1,71 @@
+<%- include('header') %>
+
+  <!--导航栏-->
+  <nav>
+    <div class="navbar">
+      <div class="inner_bar">
+        <a class="curent" href="/search">搜索资讯<i></i></a>
+        <a  href="/upload">上传资讯<i></i></a>
+        <a  href="/search_reports">报告搜索<i></i></a>
+      </div>
+    </div>
+  </nav>
+     
+  <!--搜索栏-->
+  <div id="container">
+    <h1 class="search-title">广发资管 资讯搜索</h1>
+    <br/>
+    <form method="post" >
+    <div>
+      <span id="search_span">
+          <input type="text" id="search_input"  name="search" placeholder="请输入想要搜索的内容" autofocus="autofocus" >          
+      </span>
+      
+      <span id="search_button_span">
+        <input type="submit"  id="search_button" value="搜 索" >
+      </span>
+    </div>
+    
+    <br/>
+    <br/>
+    <br/>
+    
+    <!--高级搜索框-->
+    <a id="advanced_search" >高级搜索</a>
+    
+    <div id="advanced_search_form" style="display:none">
+      <br/>
+      <div id="type">
+      <span style="display:inline;font-weight:bold;">类型：</span>
+      <input type="radio" name="typeradio" >全部
+      <input type="radio" name="typeradio" >文章
+      <input type="radio" name="typeradio">表格
+      <input type="radio" name="typeradio">视频
+    </div>
+    <br/>
+    <input type="checkbox" style="display:inline;font-weight:bold;"> 是否含附件
+    <input type="checkbox" style="display:inline;font-weight:bold;"> 是否搜索年报
+    <input type="checkbox" style="display:inline;font-weight:bold;"> 是否搜索快讯
+    <br/>
+    <br/>
+    <span style="display:inline;font-weight:bold;">时间从：</span>
+    <input type="date" id="date1" style="color:black;">
+    <span style="display:inline;font-weight:bold;">至</span>
+    <input type="date" id= "date2" style="color:black;">
+    </div>
+  </form>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <p >
+          <a href=# class="heat_title" id="heatsearch">热门搜索</a><br/><br/>
+          <a href=<%="/search?q="+top_search[0]%> class="heat"><%=top_search[0]%></a><br/><br/>
+          <a href=<%="/search?q="+top_search[1]%> class="heat"><%=top_search[1]%></a><br/><br/>
+          <a href=<%="/search?q="+top_search[2]%> class="heat"><%=top_search[2]%></a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+<%- include('footer')%>
