@@ -29,7 +29,8 @@
     
     <br/>
     <br/>
-    <p>请选择地级行政区：</p>
+    <p id=select_title>请选择地级行政区：</p>
+    <div id="select_doms">
     <select id="province" onchange="Get_Next_Place('province','Get_city')">
      <option id="Not_data1">省份</option>
      <option id="辽宁省" >辽宁省</option>
@@ -42,6 +43,7 @@
     <select id="report_type">
      <option id="Not_data3">报告类型</option>
     </select>
+    </div>
     <br/>
 
     <div id="show_reports">

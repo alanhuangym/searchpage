@@ -280,3 +280,17 @@
     margin-top: 3px;
     display: inline-block;
   }
+
+  #select_title{
+    font-size: 30px;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 18px;
+    
+  }
+
+  #select_doms select{
+    width:200px;
+    height: 30px;
+    font-size: 22px;
+  }
