@@ -294,3 +294,8 @@
     height: 30px;
     font-size: 22px;
   }
+
+  #select_doms option{
+    padding: 10px;
+    border:1px solid;
+  }

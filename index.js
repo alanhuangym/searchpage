@@ -27,4 +27,4 @@ app.use('/news',newsRouter);
 app.use('/search_reports',reportsRouter);
 app.use('/search_database',search_databaseRouter);
 
-app.listen(3000);
+app.listen(3002);

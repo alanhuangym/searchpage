@@ -55,7 +55,7 @@ router.get('/',function(req,res){
                         }
                       }},
                       {"match": {
-                        "attachment": {
+                        "attachment_content": {
                           "query": search,
                           "boost":1,
                           "operator": "and"

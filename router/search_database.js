@@ -9,14 +9,36 @@ var client = new es.Client({
 
 router.get('/',function(req,res){
     filter = req.query;
-    if (filter.province != '' && filter.city == '' && filter.type == '')
-    {l = [
+    if (filter.province != '' && filter.city == '' )
+    {   
+        if (filter.type == '')
+        {
+        l = [
         {"term": {"province": filter.province}}
-    ];}
-    if (filter.province != '' && filter.city != '' && filter.type == '')
-    {l = [
+        ];}
+        else
+        {
+            l = [
+                {"term": {"province": filter.province}},
+                {"term": {"report_type": filter.type}}
+                ];    
+        }
+    }
+    if (filter.province != '' && filter.city != '')
+    {
+        if (filter.type == '')
+        {
+        l = [
         {"term": {"city": filter.city}}
-    ];}
+        ];}
+        else
+        {
+            l = [
+                {"term": {"city": filter.city}},
+                {"term": {"report_type": filter.type}}
+                ];    
+        }
+    }
 
     client.search({
         index:'news',

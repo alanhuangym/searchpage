@@ -55,6 +55,15 @@
        "延边朝鲜族自治州":[]
       }
   };
+
+  //添加报告类型选项
+  function Add_type(){
+    $('#report_type').empty();
+    $('#report_type').append("<option>全部报告</option>");
+    $('#report_type').append("<option>政府报告</option>");
+    $('#report_type').append("<option>财政报告</option>");
+    $('#report_type').append("<option>统计报告</option>");
+  }
   //加载城市选项
   function Add_city(Province_Selected_Id){
    $("#city").empty();
@@ -70,8 +79,9 @@
     // console.log(text); //用来观察生成的text数据
 
     //筛选该省份的报告
-    
+
    }
+   Add_type();
    show_report(Province_Selected_Id,'','');
   }
 //   //加载县区选项
@@ -88,5 +98,6 @@
 //     console.log(text); //用来观察生成的text数据
 //    }
     // 筛选该城市的报告
+    Add_type();
     show_report(Province_Selected_ID,City_Selected_Id,'');
   }
