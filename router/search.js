@@ -4,7 +4,7 @@ var fs = require('fs');
 var es = require('elasticsearch');
 
 var client = new es.Client({
-    host:'localhost:9200'
+    host:'10.20.39.19:9200'
 })
 
 str = fs.readFileSync('public/files/top_search.txt', 'utf8');
@@ -12,6 +12,7 @@ top_search = (str.split('\n'));
 
 router.get('/',function(req,res){
     var search = req.query.q;
+    
     if (search == undefined)
     {
         // 渲染正常搜索首页
@@ -32,7 +33,7 @@ router.get('/',function(req,res){
                   "fields": {
                     "content": {},
                     "title": {},
-                    "attachment":{}
+                    "attachment_content":{}
                   }
                 }, 
                 "query": {
@@ -61,8 +62,8 @@ router.get('/',function(req,res){
                           "operator": "and"
                         }
                       }}
-                    ],
-                    "minimum_should_match": 1 
+                    ]
+                    // "minimum_should_match": 1 
                   }
                 }
               }

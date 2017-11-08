@@ -4,7 +4,7 @@ var fs = require('fs');
 var es = require('elasticsearch');
 
 var client = new es.Client({
-    host:'localhost:9200'
+    host:'10.20.39.19:9200'
 })
 
 router.get('/',function(req,res){
