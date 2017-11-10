@@ -49,7 +49,11 @@ router.get('/',function(req,res){
                 "bool":{
                     "filter":l
                 }
-            }
+            },
+            "sort": [
+                {"year":"desc"}
+            ]
+            
         }})
         
         .then(function (body) {

@@ -12,7 +12,7 @@
 <div style="margin-top:20px;">
 <ul class= "news_display">
 <li><label>标题：</label><%= news.title%></li>
-<li><label>作者：</label><%= news.author%></li>
+<li><label>链接：</label><a href=<%= news.url%>><%= news.title%></a></li>
 <li><label>日期：</label><%= news.date%></li>
 <li><label>内容：</label><br/><br/><%- news.content%></li>
 <li><label>附件内容：</label><br/><br/><%= news.attachment%></li>

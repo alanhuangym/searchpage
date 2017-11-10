@@ -1,5 +1,9 @@
 <%- include('header') %>
-
+<script language="JavaScript">
+    function keyLogin(){
+       document.getElementById("result_search_button").click(); //调用登录按钮的登录事件
+    }
+    </script>
 <!-- 导航栏-->
 <nav>
     <div class="navbar">
@@ -14,7 +18,7 @@
 <!-- 搜索栏 -->
 <div style="margin-top:30px;text-align:center;">
     <span id="search_span">
-        <input type="text" id="result_search_input"  name="search"  value="<%= data.search %>" >          
+        <input type="text" id="result_search_input"  name="search"  value="<%= data.search %>" onkeydown="if(event.keyCode==13) {keyLogin()}">          
     </span>
     
     <span id="search_button_span">
@@ -34,9 +38,9 @@
         <div style="text-align:left;margin-top:20px;">
             <h1 style="text-align:left;padding-left:81px;padding-right:10%;" > 
                 <%if (element.highlight.title == undefined) { %>
-                    <a href="/news/<%=element._id%>"><%=element._source.title%></a>
+                    <a href=<%="/news/"+element._id%>><%=element._source.title%></a>
                   <% } else { %>
-                  <a href="/news/<%=+element._id%>"><%-element.highlight.title[0]%></a>
+                  <a href=<%="/news/"+element._id%>><%-element.highlight.title[0]%></a>
                   <% } %>
             </h1><br/>
 

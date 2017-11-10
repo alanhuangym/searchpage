@@ -10,6 +10,13 @@ var client = new es.Client({
 str = fs.readFileSync('public/files/top_search.txt', 'utf8');
 top_search = (str.split('\n'));
 
+function getN(s) 
+
+{return s.replace(/[^0-9]/ig,"") 
+
+}
+
+
 router.get('/',function(req,res){
     var search = req.query.q;
     
@@ -21,12 +28,22 @@ router.get('/',function(req,res){
     else
     //否则进行搜索
     {
+      //获取搜索字段中的年份关键词
+
+        var year = getN(search);
+        if (year != ''){
+        var search_content = search+" AND year:"+year;
+        }
+        else {
+          var search_content = search;
+        }
+        // console.log(search_content);
         // 调用ES进行搜索
         client.search({
             index:'news',
             body:{
                 "from": 0,
-                "size": 10,
+                "size": 20,
                 "highlight": {
                   "pre_tags": ["<font color=\"red\">"],
                   "post_tags": ["</font>"],
@@ -37,37 +54,52 @@ router.get('/',function(req,res){
                   }
                 }, 
                 "query": {
-                  "function_score": {
-                    "query": {
-                      "bool": {
-                    "should": [
-                      {"match": {
-                        "title": {
-                          "query": search,
-                          "boost":2,
-                          "operator": "and"
-                        }
-                      }},
-                      {"match": {
-                        "content": {
-                          "query": search,
-                          "boost":2,
-                          "operator": "and"
-                        }
-                      }},
-                      {"match": {
-                        "attachment_content": {
-                          "query": search,
-                          "boost":1,
-                          "operator": "and"
-                        }
-                      }}
-                    ]
-                    // "minimum_should_match": 1 
+                  "bool": {
+                  "must": [
+                  {
+                  "query_string": {
+                  "default_field": "_all",
+                  "fields" : ["content^3", "title^20","city^2","attachment_content^2","province^2"],
+                  "query": search_content
                   }
-                }
-              }
-            }
+                  }
+                  ],
+                  "must_not": [ ],
+                  "should": [ ]
+                  }
+                  }
+                // "query": {
+                //   "function_score": {
+                //     "query": {
+                //       "bool": {
+                //     "should": [
+                //       {"match": {
+                //         "title": {
+                //           "query": search,
+                //           "boost":2,
+                //           "operator": "and"
+                //         }
+                //       }},
+                //       {"match": {
+                //         "content": {
+                //           "query": search,
+                //           "boost":2,
+                //           "operator": "and"
+                //         }
+                //       }},
+                //       {"match": {
+                //         "attachment_content": {
+                //           "query": search,
+                //           "boost":1,
+                //           "operator": "and"
+                //         }
+                //       }}
+                //     ]
+                    // "minimum_should_match": 1 
+                  // }
+                // }
+            //   }
+            // }
         }
           }).then(function (body) {
             // hits = body.hits.hits;
