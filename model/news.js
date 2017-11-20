@@ -1,5 +1,5 @@
 var News = require('../lib/mongo').News;
-var Tjreports = require('../lib/mongo').Tjreports;
+// var Tjreports = require('../lib/mongo').Tjreports;
 module.exports = {
     //上传资讯
     create: function create(news) {
@@ -8,7 +8,7 @@ module.exports = {
 
     //根据objectid 查找资讯
     getNewsById: function getNewsById(newsid){
-        return Tjreports
+        return News
             // .findById(newsid)
             .findOne({_id:newsid})
             // .findOne({title:newsid})
