@@ -9,13 +9,20 @@
           </div>
         </div>
 </nav>
-<div style="margin-top:20px;">
+<div id="container" style="text-align:left;color:black;">
 <ul class= "news_display">
 <li><label>标题：</label><%= news.title%></li>
 <li><label>链接：</label><a href=<%= news.url%>><%= news.title%></a></li>
-<li><label>日期：</label><%= news.date%></li>
-<li><label>内容：</label><br/><br/><%- news.content%></li>
-<li><label>附件内容：</label><br/><br/><%= news.attachment%></li>
+<!-- <li><label>日期：</label><%= news.date%></li> -->
+<!-- <li><label>内容：</label><br/><br/><%- news.content%></li> -->
+<!-- <li><label>附件内容：</label><br/><br/><%= news.attachment%></li> -->
 </ul>
+<div style="margin:0 0 0 0;">
+<div style="width:10%;display:inline-block;"></div>
+<iframe src= <%= news.url%> style="margin-top:30px;display:inline-block;" width="80%" height="600" align="middle">
+    
+</iframe>
+<div style="width:10%;display:inline-block;"></div>
+</div>
 </div>
 <%- include('footer')%>
