@@ -10,6 +10,7 @@ var client = new es.Client({
 str = fs.readFileSync('public/files/top_search.txt', 'utf8');
 top_search = (str.split('\n'));
 
+//获取标题中的数字
 function getN(s) 
 
 {return s.replace(/[^0-9]/ig,"") 
@@ -59,8 +60,9 @@ router.get('/',function(req,res){
                   {
                   "query_string": {
                   "default_field": "_all",
-                  "fields" : ["content^3", "title^20","city^2","attachment_content^2","province^2"],
-                  "query": search_content
+                  "fields" : ["content", "title","attachment_content","tags^40"],
+                  "query": search_content,
+                  "quote_analyzer":"whitespace"
                   }
                   }
                   ],
