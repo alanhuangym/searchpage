@@ -38,27 +38,13 @@
         <div style="text-align:left;margin-top:20px;">
             <h1 style="text-align:left;padding-left:81px;padding-right:10%;" > 
 
-                <!-- <%if (element.highlight.title == undefined) { %>
-                    <a href=<%="/news/"+element._id%>><%=element._source.title%></a>
-                  <% } else { %>
-                  <a href=<%="/news/"+element._id%>><%-element.highlight.title[0]%></a>
-                  <% } %> -->
+                
                   <a href=<%="/news/"+element._id%>><%=element._source.title%></a>
             </h1><br/>
 
             <div style="text-align:left;padding-left:81px;padding-right:10%;">
                     <a href=<%="/news/"+element._id%>><%=(element._source.content+element._source.attachment_content).substring(0,500)%></a>
-                <!-- <%if (element.highlight.content == undefined && element.highlight.attachment_content == undefined) { %>
-                  <a href=<%="/news/"+element._id%>><%=(element._source.content+element._source.attachment_content).substring(0,500)%></a>
-                <% } else if(element.highlight.attachment_content == undefined){ %>
-                <a href=<%="/news/"+element._id%>>
-                    <% element.highlight.content.forEach(function(h){ %>
-                    <%-h%>......
-                    <% }); %>
-                </a>
-                <%} else if (element.highlight.content == undefined) { %>
-                <a href=<%="/news/"+element._id%>><%-(element.highlight.attachment[0]).substring(0,500)%></a>
-                <% } %> -->
+               
             </div>
     <% }); %>
 </div><br/>
