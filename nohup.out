@@ -1,0 +1,28 @@
+{ MongoError: failed to connect to server [10.20.39.19:28001] on first connect [MongoError: connection 0 to 10.20.39.19:28001 timed out]
+    at Pool.<anonymous> (/Users/alan/git/js/es/node_modules/mongodb-core/lib/topologies/server.js:336:35)
+    at emitOne (events.js:115:13)
+    at Pool.emit (events.js:210:7)
+    at Connection.<anonymous> (/Users/alan/git/js/es/node_modules/mongodb-core/lib/connection/pool.js:280:12)
+    at Object.onceWrapper (events.js:318:30)
+    at emitTwo (events.js:125:13)
+    at Connection.emit (events.js:213:7)
+    at Socket.<anonymous> (/Users/alan/git/js/es/node_modules/mongodb-core/lib/connection/connection.js:197:10)
+    at Object.onceWrapper (events.js:314:30)
+    at emitNone (events.js:105:13)
+  name: 'MongoError',
+  message: 'failed to connect to server [10.20.39.19:28001] on first connect [MongoError: connection 0 to 10.20.39.19:28001 timed out]' }
+{ MongoError: failed to connect to server [10.20.39.19:28001] on first connect [MongoError: connection 0 to 10.20.39.19:28001 timed out]
+    at Pool.<anonymous> (/Users/alan/git/js/es/node_modules/mongodb-core/lib/topologies/server.js:336:35)
+    at emitOne (events.js:115:13)
+    at Pool.emit (events.js:210:7)
+    at Connection.<anonymous> (/Users/alan/git/js/es/node_modules/mongodb-core/lib/connection/pool.js:280:12)
+    at Object.onceWrapper (events.js:318:30)
+    at emitTwo (events.js:125:13)
+    at Connection.emit (events.js:213:7)
+    at Socket.<anonymous> (/Users/alan/git/js/es/node_modules/mongodb-core/lib/connection/connection.js:197:10)
+    at Object.onceWrapper (events.js:314:30)
+    at emitNone (events.js:105:13)
+  name: 'MongoError',
+  message: 'failed to connect to server [10.20.39.19:28001] on first connect [MongoError: connection 0 to 10.20.39.19:28001 timed out]' }
+(node:9759) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): MongoError: failed to connect to server [10.20.39.19:28001] on first connect [MongoError: connection 0 to 10.20.39.19:28001 timed out]
+(node:9759) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
